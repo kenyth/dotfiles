@@ -1,0 +1,17 @@
+hardstatus on
+hardstatus alwayslastline
+#hardstatus string "%w%=%m/%d %c"
+hardstatus string '%{= Kk}[ %{k}%H %{k}] %{= Kk}%-Lw%{= kG}%50>%n%f* %t%{= Kk}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+#hardstatus string '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+#hardstatus string '%{= kc}%H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c'
+#hardstatus string "%{wk}%W %{Gk}[%n - %t]%{wk}"
+
+defencoding utf8
+encoding utf8 utf8
+
+# keep scrollback n lines
+defscrollback 1000
+
+altscreen on
