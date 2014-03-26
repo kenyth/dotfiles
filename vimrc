@@ -1,3 +1,8 @@
+" Golang support
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set rtp+=$GOROOT/misc/vim
+
 call pathogen#infect()
 
 syntax on
@@ -19,6 +24,7 @@ set hlsearch
 set showmatch
 
 " Misc
+colorscheme delek
 set clipboard=unnamed   " yank to the system register (*) by default
 set showmatch           " Cursor shows matching ) and }
 set showmode            " Show current mode
@@ -36,7 +42,7 @@ if exists('+undofile')
     set undofile " support only in Vim 7.3 and later
 endif
 
-set cursorline
+"set cursorline
 set smartindent
 set autoindent
 set copyindent
@@ -57,6 +63,12 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>v V`]
 " strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" toggle Tagbar
+nmap <leader>t :TagbarToggle<CR>
+
+" toggle NERDTree
+nmap <leader>n :NERDTreeToggle<CR>
 
 " <C-a> conflicts with gnu-screen default shortcut
 nmap <leader>a <C-a>
@@ -115,9 +127,7 @@ if has("autocmd") && exists("+omnifunc")
                     \ endif
 endif
 
-" TODO: Golang support
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -130,4 +140,32 @@ set nocompatible
 set laststatus=2
 set t_Co=256
 "let g:Powerline_symbols = 'fancy'
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 
